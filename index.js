@@ -14,7 +14,7 @@ const SaleDetail = require('./Routes/SaleDetailRoute.js');
 } */
 
 app.use(cors({
-  origin: 'https://inventory-q6tk.onrender.com'
+  origin: "https://inventory-q6tk.onrender.com"
 }));
 app.use(bodyParser.json());
 app.use(express.json());
