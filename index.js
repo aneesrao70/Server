@@ -9,11 +9,13 @@ const loginUser = require('./Routes/login.js');
 const addProduct = require('./Routes/AddProduct.js');
 const SaleDetail = require('./Routes/SaleDetailRoute.js');
 
-const corsOptions = {
+/* const corsOptions = {
   origin: 'https://inventory-q6tk.onrender.com'
-}
+} */
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://inventory-q6tk.onrender.com'
+}));
 app.use(bodyParser.json());
 app.use(express.json());
 
