@@ -10,7 +10,7 @@ const addProduct = require('./Routes/AddProduct.js');
 const SaleDetail = require('./Routes/SaleDetailRoute.js');
 
 const corsOptions = {
-  origin: 'https://inventory-q6tk.onrender.com';
+  origin: 'https://inventory-q6tk.onrender.com'
 }
 
 app.use(cors());
