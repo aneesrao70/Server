@@ -34,17 +34,17 @@ router.post('/register', async(req, res) => {
             data.save()
                 .then((result) => {
                     console.log('Data saved to MongoDB:', result);
-                    es.header("Access-Control-Allow-Origin" , "https://inventory-q6tk.onrender.com")
+                    res.header("Access-Control-Allow-Origin" , "https://inventory-q6tk.onrender.com")
                     res.status(201).json(result);
                 })
                 .catch((error) => {
                     console.error('Error saving data to MongoDB:', error);
-                    es.header("Access-Control-Allow-Origin" , "https://inventory-q6tk.onrender.com")
+                    res.header("Access-Control-Allow-Origin" , "https://inventory-q6tk.onrender.com")
                     res.status(500).json({ message: error });
                 });
         } catch (error) {
             console.error('Error hashing password:', error);
-            es.header("Access-Control-Allow-Origin" , "https://inventory-q6tk.onrender.com")
+            res.header("Access-Control-Allow-Origin" , "https://inventory-q6tk.onrender.com")
             res.status(500).json({ message: error });
         }
     }
