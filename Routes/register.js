@@ -8,6 +8,9 @@ const registerData = require('../Models/registerData.js');
 router.post('/register', async(req, res) => {
     const newData = req.body;
     // Create a new document and save it to MongoDB
+    const validatePassword = (password) => {
+      return password.length > 7  && /[a-z]/.test(password) && /[A-Z]/.test(password) && /\d/.test(password);
+    };
 
    
         // Check if email already exists

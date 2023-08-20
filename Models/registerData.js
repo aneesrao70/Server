@@ -33,9 +33,6 @@ const registerSchema = new mongoose.Schema({
     }
   })
 
-  const validatePassword = (password) => {
-    return password.length > 7  && /[a-z]/.test(password) && /[A-Z]/.test(password) && /\d/.test(password);
-  };
 
 const registerData = mongoose.model('registerData', registerSchema);
 
