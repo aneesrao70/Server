@@ -25,7 +25,7 @@ router.post('/login', async (req, res) => {
             const token = jwt.sign({ userId: user._id }, secretKey, { expiresIn: '1000m' });
             res.status(200).json({userId : user._id , token , message: 'Authentication successful' });
         } else {
-            res.status(401).json({ message: 'Password is not correct.' });
+            res.status(402).json({ message: 'Password is not correct.' });
         }
     } catch (error) {
         console.error('Error authenticating user', error);

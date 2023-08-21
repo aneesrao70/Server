@@ -8,14 +8,14 @@ const registerUser = require('./Routes/register.js');
 const loginUser = require('./Routes/login.js');
 const addProduct = require('./Routes/AddProduct.js');
 const SaleDetail = require('./Routes/SaleDetailRoute.js');
+const enterInventory = require('./Routes/EnterInventoryRoute.js');
 
-/* const corsOptions = {
-  origin: 'https://inventory-q6tk.onrender.com'
-} */
 
 app.use(cors({
   origin: "https://inventory-q6tk.onrender.com"
+
 }));
+
 app.use(bodyParser.json());
 app.use(express.json());
 
@@ -36,6 +36,7 @@ mongoose
   app.use('/api/auth', loginUser);
   app.use('/api/auth', addProduct);
   app.use('/api/auth', SaleDetail);
+  app.use('/api/auth', enterInventory);
 
 
 
