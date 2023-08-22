@@ -11,10 +11,11 @@ const SaleDetail = require('./Routes/SaleDetailRoute.js');
 const enterInventory = require('./Routes/EnterInventoryRoute.js');
 
 
-app.use(cors({
-  origin: "https://inventory-q6tk.onrender.com"
-
-}));
+app.use(cors(
+  {origin: "https://inventory-q6tk.onrender.com"}
+  /* {origin: "https://localhost:3000"} */
+  
+  ));
 
 app.use(bodyParser.json());
 app.use(express.json());
