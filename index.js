@@ -13,8 +13,6 @@ const enterInventory = require('./Routes/EnterInventoryRoute.js');
 
 app.use(cors(
   {origin: "https://inventory-q6tk.onrender.com"}
-  /* {origin: "https://localhost:3000"} */
-  
   ));
 
 app.use(bodyParser.json());
