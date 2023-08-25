@@ -20,6 +20,25 @@ router.post('/Sale', authenticateMiddleware , async (req, res) => {
         })
   });
 
+  router.put('/Sale', authenticateMiddleware , async (req, res) => {
+    try {
+      const PaymentCheck = req.body.PaymentCheck;
+      const saleId = req.body._id;
+     
+
+      const updatedSale = await SaleDetail.findByIdAndUpdate(
+        saleId,
+        { PaymentCheck : PaymentCheck},
+        { new: true } 
+      );
+  
+      res.json({ success: true, sale: updatedSale });
+    } catch (error) {
+      console.error('Error updating payment check:', error);
+      res.status(500).json({ success: false, error: 'Internal server error' });
+    }
+  });
+
 
   router.get('/Sale', authenticateMiddleware , async (req, res) => {
     try {

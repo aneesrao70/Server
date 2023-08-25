@@ -12,7 +12,7 @@ router.post('/register', async(req, res) => {
       return password.length > 7  && /[a-z]/.test(password) && /[A-Z]/.test(password) && /\d/.test(password);
     };
 
-   
+  
         // Check if email already exists
         const existingUser = await registerData.findOne({ email:newData.email });
 

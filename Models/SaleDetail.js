@@ -33,7 +33,18 @@
     },
     createdAt: { 
       type: Date, 
-      default: Date.now }
+      default: Date.now },
+    ClientName : {
+      type: String,
+    },
+    ClientPhone : {
+      type: String,
+    },
+    PaymentCheck : {
+      type: Number,
+      required: true,
+    }
+
   })
 
   const SaleDetail = mongoose.model('Sale', SaleDetailSchema);
