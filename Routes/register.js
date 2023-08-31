@@ -6,8 +6,8 @@ const sendEmail = require('../NodeMailer/nodemailer.js');
 const crypto = require('crypto');
 const resetToken = require('../Models/resetpasswordModel.js')
 
-/* const site = "http://localhost:3000"; */
-const site = "https://inventory-q6tk.onrender.com";
+/* const site = "http://localhost:3000/"; */
+const site = "https://inventory-q6tk.onrender.com/";
 
 
 router.post('/reset' , async (req, res) => {
@@ -44,7 +44,7 @@ router.post('/resetpassword' , async (req, res) => {
     const resettoken = crypto.randomBytes(16).toString('hex'); // Implement your token generation logic
     const resetInfo = new resetToken({resetToken: resettoken , email: email});
     await resetInfo.save();
-    const resetpasswordlink = `${site}/verify/?reset=${resettoken}`
+    const resetpasswordlink = `${site}verify/?reset=${resettoken}`
     const text = `Click on the ${resetpasswordlink} to verify your Email and then reset your password.`;
     sendEmail(email , text)
 
