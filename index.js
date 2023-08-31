@@ -11,6 +11,7 @@ const SaleDetail = require('./Routes/SaleDetailRoute.js');
 const enterInventory = require('./Routes/EnterInventoryRoute.js');
 
 
+
 app.use(cors(
   {origin: "https://inventory-q6tk.onrender.com"}
   ));
@@ -36,6 +37,7 @@ mongoose
   app.use('/api/auth', addProduct);
   app.use('/api/auth', SaleDetail);
   app.use('/api/auth', enterInventory);
+
 
 
 

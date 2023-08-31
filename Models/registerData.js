@@ -30,6 +30,14 @@ const registerSchema = new mongoose.Schema({
     agree: {
       type: Boolean,
       required: true,
+    },
+    verified : {
+      type: Boolean,
+      default: false,
+    }, 
+    verificationtoken : {
+      type: String,
+      required: true,
     }
   })
 

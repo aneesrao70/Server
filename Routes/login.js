@@ -3,7 +3,13 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const registerData = require('../Models/registerData.js');
-const secretKey = 'umerjavaid12@';
+const sendEmail = require('../NodeMailer/nodemailer.js');
+
+/* const site = "http://localhost:3000"; */
+const site = "https://inventory-q6tk.onrender.com";
+
+require('dotenv').config();
+const secretKey = process.env.secretKey
 
 router.post('/login', async (req, res) => {
     const { email, password } = req.body;
@@ -15,6 +21,13 @@ router.post('/login', async (req, res) => {
         if (!user) {
             
             return res.status(401).json({ message: 'User does not exist.' });
+        }
+        if (!user.verified) {
+            console.log('User is not verified, please verify your email address')
+            const verificationtoken = user.verificationtoken;
+            const text = `Click on the link to verify yourself ${site}/verify/${verificationtoken}`;
+            sendEmail(user.email , text);
+            return res.status(401).json({ message: 'Verify Your Email Address, Check your Email.' });
         }
 
         // Compare the entered password with the stored hashed password
